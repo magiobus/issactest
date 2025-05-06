@@ -2,7 +2,6 @@ import localFont from "next/font/local";
 import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
 import "./globals.css";
-import connectDB from "@/libs/mongoose";
 import config from "@/config";
 import { NextAuthProvider } from "@/components/NextAuthProvider";
 
@@ -23,13 +22,6 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
-  try {
-    await connectDB();
-    console.info("MongoDB connected successfully!");
-  } catch (error) {
-    console.error("MongoDB connection error:", error);
-  }
-
   return (
     <html lang="en">
       <body
